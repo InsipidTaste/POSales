@@ -146,6 +146,7 @@ namespace POSales
 
         private void btnUser_Click(object sender, EventArgs e)
         {
+            openChildForm(new UserAccount());
             hideSubmenu();
         }
 

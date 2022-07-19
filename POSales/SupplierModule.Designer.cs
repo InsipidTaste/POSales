@@ -98,6 +98,7 @@
             this.btnUpdate.TabIndex = 35;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnCancel
             // 
@@ -112,6 +113,7 @@
             this.btnCancel.TabIndex = 34;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label2
             // 
@@ -158,9 +160,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(23, 185);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 20);
+            this.label4.Size = new System.Drawing.Size(131, 20);
             this.label4.TabIndex = 38;
-            this.label4.Text = "Contact :";
+            this.label4.Text = "Contact Person :";
             // 
             // label5
             // 

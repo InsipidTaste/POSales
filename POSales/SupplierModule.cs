@@ -71,5 +71,37 @@ namespace POSales
                 MessageBox.Show(ex.Message,stitle);
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Update this record? Click yes to confirm.", "CONFIRM", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+                    cm = new SqlCommand("Update tbSupplier set supplier=@supplier, address=@address, contactperson=@contactperson, phone=@phone, email=@email, fax=@fax where id=@id", cn);
+                    cm.Parameters.AddWithValue("@id", lblId.Text);
+                    cm.Parameters.AddWithValue("@supplier", txtSupplier.Text);
+                    cm.Parameters.AddWithValue("@address", txtAddress.Text);
+                    cm.Parameters.AddWithValue("@contactperson", txtConPerson.Text);
+                    cm.Parameters.AddWithValue("@phone", txtPhone.Text);
+                    cm.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cm.Parameters.AddWithValue("@fax", txtFaxNo.Text);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Record has been successfully updated!", "Update Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "warning");
+            }
+        }
     }
 }
